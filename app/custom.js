@@ -46,5 +46,23 @@ $(document).ready(function() {
       }, interval);
     };
   }
+   /*
+   * Handler for form submit event. 
+   */
+  $(function() {
+    $("#search-youtube").submit(function( event ) {
+      event.preventDefault();   // don't refresh the page
+
+      // push the form area to the top of the page
+      $("div.start-middle").removeClass("start-middle").addClass("go-high");
+
+      // clear out any old results
+      $("#search-results").html('');
+
+      var searchTerm = $("#search-query").val();
+      getResults(searchTerm);
+    });
+  });
+
 
 });
