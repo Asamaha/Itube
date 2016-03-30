@@ -52,4 +52,67 @@ iframe {
 #search-youtube input:focus {
   outline: 0;
 }
+@media (max-width: 520px) {
+  .container {
+    width: 100%;
+  }
+  h1 {
+    font-size: 2.7em;
+  }
+  iframe {
+    width: 100%;
+    min-height: 250px;
+  }
+}
 
+.team-member img {
+    border-radius: 10%;
+    width: 40%;
+    margin: 0 auto;
+    border: 2px solid #fff;
+}
+ul.social-buttons {
+    margin-bottom: 0;
+}
+
+ul.social-buttons li a {
+  
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    font-size: 20px;
+    line-height: 40px;
+    outline: 0;
+    color: #fff;
+    background-color: #222;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+
+ul.social-buttons li a:hover,
+ul.social-buttons li a:focus,
+ul.social-buttons li a:active {
+    background-color: #fed136;
+}
+
+.btn:focus,
+.btn:active,
+.btn.active,
+.btn:active:focus {
+    outline: 0;
+}
+
+@media (min-width: 520px) and (max-width: 760px) {
+  .container {
+    width: 90%;
+  }
+  h1 {
+    font-size: 3em;
+  }
+  iframe {
+    width: 95%;
+    min-height: 300px;
+  }
+}
