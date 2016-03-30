@@ -80,6 +80,34 @@ $(document).ready(function() {
     makeAjaxCall(url, params); 
   }
 
+/*
+   * Reusable function for making the AJAX request against the 
+   * YouTube /v3 API. 
+   */
+  function makeAjaxCall(url, params) {
+    var nextPageToken;
+
+    // jQuery AJAX request
+    $.getJSON(url, params, function ( data ) {
+
+      // if the result set has additional videos
+      // to search then add the query, url, and next page token
+      // to the search-results div as data attributes
+      if (data.nextPageToken) {
+        $("#search-results").data("token", data.nextPageToken);
+        $("#search-results").data("query", params.q);
+        $("#search-results").data("url", url);
+      }
+
+      // display the result set to the user
+      showResults(data.items);
+
+    })
+      // log failed AJAX request events
+      .fail(function(jqxhr, textStatus, error){
+        console.log("Error returned: " + textStatus + ", " + error);
+    });
+  }
 
 
 });
