@@ -28,4 +28,23 @@ $(document).ready(function() {
     } 
       
   }, 200));
+    /*
+   * Scroll event calls the nextPage function for every scroll
+   * detected within the designated vertical space. This results
+   * in many AJAX calls within a very short amount of time. Use
+   * this function as a wrapper to the scroll event handler to
+   * prevent this behavior.
+   */
+  function scrollDebounce(func, interval) {
+    var lastcall = -1;
+    return function() {
+      clearTimeout(lastcall);
+      var args = arguments;
+      var self = this;
+      lastcall = setTimeout(function() {
+        func.apply(self, args);
+      }, interval);
+    };
+  }
+
 });
