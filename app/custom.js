@@ -63,6 +63,23 @@ $(document).ready(function() {
       getResults(searchTerm);
     });
   });
+  /*
+   * Setup the initial AJAX request. To be called when user submits the form.
+   */
+  function getResults( searchTerm ) {
+    var url = 'https://www.googleapis.com/youtube/v3/search'; // endpoint url
+    var params = {
+      part: 'snippet, id',          // required for YouTube v3 API request
+      key: 'AIzaSyDs0QnreUW51APluXF_kEz4yOkJW94m3-s',     // developer key
+      type: 'video',
+      videoEmbeddable: 'true',  // only return videos that can be embedded
+      maxResults: 5,           // limit the search results to max of 5
+      q: searchTerm             // query parameter
+    };
+
+    makeAjaxCall(url, params); 
+  }
+
 
 
 });
