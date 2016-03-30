@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  font-size: 100%;
+  box-sizing: border-box; 
+}
+html, 
+body { 
+  min-height: 100%; 
+}
+body {
+  background: #e1e1e1 url(bkgd.png);
+  font-family: "Segoue", sans-serif;
+  line-height: 1.5em;
+  color: #656565;
+  font-size: 14px;
+}
+.container { 
+  width: 50%; 
+  height: 100%; 
+  margin: 0 auto; 
+  text-align: center; 
+  position: relative;
+}
+input { 
+  padding: 0.5em 1.25em; 
+}
+h1 { 
+  font-size: 3.4em; 
+  font-weight: 900; 
+  line-height: 28px; 
+  margin-bottom: 15px;
+}
+iframe { 
+  width: 90%; 
+  min-height: 400px; 
+}
+.start-middle {
+  margin-top: 10%;
+}
+.go-high {
+  margin-top: 15px;
+  margin-bottom: 22px;
+}
+#search-results {
+  margin-bottom: 75px;
+}
+#search-youtube input {
+  border-radius: 5px;
+}
+#search-youtube input:focus {
+  outline: 0;
+}
+
