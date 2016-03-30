@@ -108,6 +108,45 @@ $(document).ready(function() {
         console.log("Error returned: " + textStatus + ", " + error);
     });
   }
+/*
+   * Grab the next 'page' of results from the query. This function
+   * gets called when the user scrolls towards the bottom of the page.
+   */
+  function nextPage() {
+
+    // Get the query, url and nextPageToken from the search-results data attributes.
+    var token = $('#search-results').data('token'); 
+    var query = $('#search-results').data('query'); 
+    var dUrl  = $('#search-results').data('url');
+
+    // redefine YouTube v3 search parameters with added token
+    var parameters = {
+      part: 'snippet',          // required for YouTube v3 API request
+      key: 'AIzaSyDs0QnreUW51APluXF_kEz4yOkJW94m3-s',
+      type: 'video',            // only want videos returned
+      pageToken: token,         // next page of results
+      videoEmbeddable: 'true',  // only return videos that can be embedded
+      maxResults: 5,            // limit the search results to max of 5
+      q: query
+    };
+
+    // make the request
+    makeAjaxCall(dUrl, parameters);
+  }
+
+  /* 
+   * Iterate through the results to create a HTML string then append
+   * the string to the search-results div in the DOM.
+   */
+  function showResults( results ) {
+
+    var html = '';
+    $.each(results, function( index, value ) {
+      html += "<iframe src='http://www.youtube.com/embed/" + value.id.videoId + "' frameborder='0' allowfullscreen></iframe><br>";
+    });
+    $("#search-results").append(html);
+  }
+
 
 
 });
