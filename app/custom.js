@@ -142,7 +142,7 @@ $(document).ready(function() {
 
     var html = '';
     $.each(results, function( index, value ) {
-      html += "<iframe src='http://www.youtube.com/embed/" + value.id.videoId + "' frameborder='0' allowfullscreen></iframe><br>";
+      html += "<iframe src='https://www.youtube.com/embed/" + value.id.videoId + "' frameborder='0' allowfullscreen></iframe><br>";
     });
     $("#search-results").append(html);
   }
