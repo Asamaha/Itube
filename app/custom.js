@@ -126,7 +126,7 @@ $(document).ready(function() {
       type: 'video',            // only want videos returned
       pageToken: token,         // next page of results
       videoEmbeddable: 'true',  // only return videos that can be embedded
-      maxResults: 5,            // limit the search results to max of 5
+      maxResults: 15,            // limit the search results to max of 15
       q: query
     };
 
